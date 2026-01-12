@@ -4,7 +4,6 @@
 
 Welcome! This repository is my academic and technical portfolio for **ECON 3916: Statistical & Machine Learning for Economics**. It documents my journey in applying modern data science and machine learning tools to economic questions, with a strong emphasis on both **theory-driven reasoning** and **empirical prediction**.
 
----
 
 ## 📘 About This Portfolio
 
@@ -18,7 +17,6 @@ Through this portfolio, I aim to demonstrate how economists can:
 - Maintain interpretability while improving model performance  
 - Apply machine learning responsibly to economic data  
 
----
 
 ## 🧠 What You’ll Find Here
 
@@ -27,7 +25,6 @@ Through this portfolio, I aim to demonstrate how economists can:
 - Experiments connecting theory-driven analysis with prediction  
 - Reproducible and well-documented workflows  
 
----
 
 ## 🛠️ Tech Stack
 
@@ -37,7 +34,7 @@ Through this portfolio, I aim to demonstrate how economists can:
 - 📈 **Statsmodels**
 - ☁️ **Google Colab**
 
----
+
 
 ## 🚀 Looking Ahead
 
