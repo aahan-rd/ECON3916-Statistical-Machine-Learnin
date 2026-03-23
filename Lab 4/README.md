@@ -46,4 +46,42 @@ This folder contains Lab 4 material for ECON3916, focused on **robust descriptiv
   - x = `MedInc`
   - y = `AveRooms`
   - color = `outlier_iso`
-
+- Sets y-axis limit to focus on the main mass of the data.
+
+**Learning objective:** sanity-check anomaly labels visually and see where the algorithm is “drawing the boundary”.
+
+### 6) Robust vs non-robust summaries: mean/median vs MAD
+- Splits the dataset into:
+  - “Normal” (`outlier_iso == False`)
+  - “Outlier” (`outlier_iso == True`)
+- For each group and for metrics `MedInc` and `MedHouseVal`, computes:
+  - Mean
+  - Median
+  - Standard deviation
+  - **MAD** (Median Absolute Deviation) using `scipy.stats.median_abs_deviation(..., scale="normal")`
+- Adds an “inequality wedge” statistic:
+  - `Mean - Median`
+- Plots income distributions for normal vs outlier districts side-by-side.
+
+**Learning objective:** see how tails / outliers change the mean much more than the median, and why MAD can be a better dispersion measure in heavy-tailed settings.
+
+## Dependencies / libraries used
+
+- `pandas`, `numpy`
+- `seaborn`, `matplotlib`
+- `scikit-learn`:
+  - `fetch_california_housing`
+  - `IsolationForest`
+- `scipy`:
+  - `median_abs_deviation`
+
+## Data files referenced
+
+- No local CSVs required.
+- Dataset is fetched from scikit-learn: `fetch_california_housing(as_frame=True)`.
+
+## How to run
+
+Open the notebook and run all cells in Jupyter / VS Code / Colab:
+
+- `Lab 4/Lab_4_Descriptive_Statistics_—_Robustness_in_a_Skewed_World_.ipynb`
