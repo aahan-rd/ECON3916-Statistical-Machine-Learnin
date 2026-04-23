@@ -27,13 +27,35 @@ export default function Hero() {
         }}
       />
 
+      {/* Hero nav — top right */}
+      <nav className="absolute top-6 right-6 md:right-16 z-20 hidden md:flex gap-8">
+        {[
+          { label: "About", href: "#about" },
+          { label: "Experience", href: "#experience" },
+          { label: "Projects", href: "#projects" },
+          { label: "Skills", href: "#skills" },
+          { label: "Nature", href: "#nature" },
+          { label: "Contact", href: "#contact" },
+        ].map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="text-sm text-white/80 hover:text-white transition-colors duration-200 tracking-wide"
+            style={{ textShadow: "0 1px 6px rgba(0,0,0,0.6)" }}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-          className="text-copper text-xs tracking-[0.3em] uppercase mb-6 font-body"
+          className="text-white text-xs tracking-[0.3em] uppercase mb-6 font-body"
+          style={{ textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
         >
           Boston, MA · Bangalore, India
         </motion.p>
@@ -52,9 +74,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.65 }}
-          className="mt-6 text-offwhite/60 tracking-[0.2em] uppercase text-sm md:text-base font-light"
+          className="mt-6 text-white/85 tracking-[0.28em] uppercase text-sm md:text-[0.95rem] font-light"
+          style={{ textShadow: "0 1px 8px rgba(0,0,0,0.65)" }}
         >
-          Product Manager &nbsp;·&nbsp; Data Science &nbsp;·&nbsp; Conservation
+          Product &amp; Innovation &nbsp;·&nbsp; Data Science &nbsp;·&nbsp; Conservation
         </motion.p>
       </div>
 

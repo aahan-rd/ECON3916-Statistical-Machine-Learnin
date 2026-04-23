@@ -57,13 +57,13 @@ const projects: Project[] = [
     tags: ["Product Design", "Design Thinking", "Medical Device", "User-Centered Design", "Entrepreneurship"],
   },
   {
-    title: "Full-Stack Cybersecurity App",
-    role: "Personal Project",
+    title: "Cook Your Books — Full-Stack Desktop App",
+    role: "Developer & Lead Planner · CS Course Project · Spring 2026",
     bullets: [
-      "A full-stack web application focused on cybersecurity concepts and tooling.",
-      "Built to explore secure authentication, data handling, and vulnerability awareness.",
+      "Leading a team to build a full-stack desktop application in Java and JavaFX following the MVVM architecture pattern.",
+      "Features four integrated modules: a recipe library browser, a recipe editor, a search system with advanced filtering and debounced queries, and an import interface powered by Gemini's OCR API for adding recipes via photos.",
     ],
-    tags: ["Full-Stack", "Cybersecurity", "Web App"],
+    tags: ["Java", "JavaFX", "MVVM", "Gemini API", "OCR", "JUnit", "Full-Stack"],
     github: "https://github.com/aahan-rd",
   },
 ];
@@ -132,9 +132,8 @@ export default function Projects() {
                 {/* Bullets — grow to fill available space */}
                 <ul className="space-y-2 flex-1">
                   {project.bullets.map((b, bi) => (
-                    <li key={bi} className="flex gap-3 text-sm text-offwhite/60 leading-relaxed">
-                      <span className="text-copper/40 mt-1 shrink-0">–</span>
-                      <span>{b}</span>
+                    <li key={bi} className="text-sm text-offwhite/60 leading-relaxed">
+                      {b}
                     </li>
                   ))}
                 </ul>

@@ -22,10 +22,10 @@ const socials = [
     external: true,
   },
   {
-    label: "Phone",
-    value: "+1 510 459 2486",
-    href: "tel:+15104592486",
-    external: false,
+    label: "Instagram",
+    value: "@aahandesai",
+    href: "https://www.instagram.com/aahandesai/",
+    external: true,
   },
 ];
 
@@ -52,7 +52,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-24">
           {socials.map((s, i) => (
             <motion.a
               key={s.label}

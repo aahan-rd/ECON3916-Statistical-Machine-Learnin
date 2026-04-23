@@ -53,6 +53,8 @@ const categories: SkillCategory[] = [
       "Google Cloud",
       "Azure Kubernetes",
       "Loveable.AI",
+      "Claude",
+      "Claude Code",
       "DaVinci Resolve",
       "Adobe Lightroom",
       "Blender",

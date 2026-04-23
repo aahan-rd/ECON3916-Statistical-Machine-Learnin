@@ -71,7 +71,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="font-display text-5xl md:text-6xl font-bold text-offwhite mb-20"
+          className="font-display text-5xl md:text-6xl font-bold text-offwhite mb-16"
         >
           Experience
         </motion.h2>
@@ -112,7 +112,7 @@ export default function Experience() {
                       }}
                     />
                   ))}
-                  <span className="text-xs tracking-[0.2em] uppercase text-offwhite/22">
+                  <span className="text-[10px] tracking-[0.2em] uppercase text-offwhite/15">
                     · 2 years prior ·
                   </span>
                 </motion.div>
@@ -176,9 +176,8 @@ export default function Experience() {
                   {/* Bullet points */}
                   <ul className="space-y-2.5 mb-5">
                     {job.bullets.map((b, bi) => (
-                      <li key={bi} className="flex gap-3 text-sm text-offwhite/62 leading-relaxed">
-                        <span className="text-copper/50 mt-1 shrink-0">–</span>
-                        <span>{b}</span>
+                      <li key={bi} className="text-sm text-offwhite/62 leading-relaxed">
+                        {b}
                       </li>
                     ))}
                   </ul>
