@@ -9,6 +9,8 @@ import pandas as pd
 
 from nyt_sentiment import fetch_nyt_headlines, compute_daily_sentiment
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 def _load_csv(path, val_col=None, val_name=None):
     """Read a FRED-style CSV with a date column and one value column.
@@ -28,9 +30,12 @@ class LivePredictor:
     the latest feature values, and expose three prediction modes:
     history, live headlines, and user what-if overrides."""
 
-    def __init__(self, model_path='model_bigmove_1d.pkl', features_path='feature_names.pkl',
-                 gpr_csv='ai_gpr_data_daily.csv', wti_csv='DCOILWTICO.csv',
-                 vix_csv='VIXCLS.csv'):
+    def __init__(self,
+                 model_path=os.path.join(BASE_DIR, 'model_bigmove_1d.pkl'),
+                 features_path=os.path.join(BASE_DIR, 'feature_names.pkl'),
+                 gpr_csv=os.path.join(BASE_DIR, 'ai_gpr_data_daily.csv'),
+                 wti_csv=os.path.join(BASE_DIR, 'DCOILWTICO.csv'),
+                 vix_csv=os.path.join(BASE_DIR, 'VIXCLS.csv')):
         """Load model + CSVs, merge, and cache the latest feature row."""
         for path in (model_path, features_path, gpr_csv, wti_csv, vix_csv):
             if not os.path.exists(path):

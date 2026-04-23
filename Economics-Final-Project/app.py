@@ -7,8 +7,11 @@ geopolitical headlines, what-if scenario, and historical performance.
 Run locally:  streamlit run app.py
 """
 
+import os
 import warnings
 from email.utils import parsedate_to_datetime
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 try:
     from zoneinfo import ZoneInfo
@@ -42,8 +45,8 @@ st.set_page_config(page_title="Oil Shock Radar", layout="wide", page_icon="ðŸ›¢ï
 sns.set_style("whitegrid")
 
 # Load-only. The .pkl files are committed to the repo; never rebuild here.
-model = joblib.load("model_bigmove_1d.pkl")
-features = joblib.load("feature_names.pkl")
+model = joblib.load(os.path.join(BASE_DIR, "model_bigmove_1d.pkl"))
+features = joblib.load(os.path.join(BASE_DIR, "feature_names.pkl"))
 
 # --- Custom CSS (dark-mode compatible via rgba accents) ---
 st.markdown("""
