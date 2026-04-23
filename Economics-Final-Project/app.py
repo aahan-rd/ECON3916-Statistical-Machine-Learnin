@@ -28,6 +28,11 @@ except Exception:
 
 warnings.filterwarnings("ignore")
 
+import joblib
+features = ['gpr_ai_lag1', 'gpr_oil_lag1', 'gpr_aer_lag1', 'vix_lag1', 
+            'wti_return_lag1', 'gpr_change_5d', 'wti_return_lag5', 'vix_change_5d']
+joblib.dump(features, 'feature_names.pkl')
+
 st.set_page_config(page_title="Oil Shock Radar", layout="wide", page_icon="🛢️")
 sns.set_style("whitegrid")
 
