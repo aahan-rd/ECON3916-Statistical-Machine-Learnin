@@ -31,6 +31,17 @@ warnings.filterwarnings("ignore")
 import joblib
 features = ['gpr_ai_lag1', 'gpr_oil_lag1', 'gpr_aer_lag1', 'vix_lag1', 
             'wti_return_lag1', 'gpr_change_5d', 'wti_return_lag5', 'vix_change_5d']
+best_pipe = Pipeline([
+    ('scaler', StandardScaler()),        # Step 1: normalize features
+    ('clf', GradientBoostingClassifier(  # Step 2: the actual model
+        n_estimators=500, 
+        max_depth=3, 
+        learning_rate=0.05,
+        subsample=0.8, 
+        min_samples_leaf=50, 
+        random_state=42
+    ))
+])
 joblib.dump(features, 'feature_names.pkl')
 joblib.dump(best_pipe, 'model_bigmove_1d.pkl')
 
