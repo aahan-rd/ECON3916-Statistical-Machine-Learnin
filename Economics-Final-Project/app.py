@@ -298,9 +298,9 @@ else:
                       unsafe_allow_html=True)
 st.divider()
 
-# --- SECTION 1: Today's Prediction (2 cols) ---
+# --- SECTION 1: Today's Prediction (3 cols) ---
 st.header("Today's Prediction")
-c1, c2 = st.columns(2)
+c1, c2, c3 = st.columns(3)
 
 live_headline_pred = None
 if summary:
@@ -331,12 +331,31 @@ else:
         st.metric("Live Market Model", "—")
         st.warning("Live prices unavailable, using last known data")
 
+live_combined_pred = None
+if summary and wti is not None and vix is not None:
+    live_combined_pred = predictor.predict_combined(summary, wti, vix, threshold=threshold)
+    with c3:
+        p = live_combined_pred["probability"]
+        st.metric("Combined Model", f"{p:.1%}",
+                  delta=f"{(p - threshold) * 100:+.1f} pp vs threshold")
+        st.caption(
+            f"NYT headlines + live WTI ${live_combined_pred['wti_last']:.2f} "
+            f"+ VIX {live_combined_pred['vix_last']:.2f}"
+        )
+        alert(p, threshold)
+else:
+    with c3:
+        st.metric("Combined Model", "—")
+        st.warning("Requires both headlines and live prices")
+
 with st.expander("View feature values used by each model"):
     rows = {}
     if live_headline_pred:
         rows["Live Headline"] = live_headline_pred["features_used"]
     if live_market_pred:
         rows["Live Market"] = live_market_pred["features_used"]
+    if live_combined_pred:
+        rows["Combined"] = live_combined_pred["features_used"]
     if rows:
         st.dataframe(pd.DataFrame(rows).T[predictor.features].style.format("{:.3f}"))
     else:

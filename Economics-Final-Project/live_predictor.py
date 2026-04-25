@@ -104,6 +104,38 @@ class LivePredictor:
             'source': 'live_headlines',
         }
 
+    def predict_combined(self, headlines_summary, wti_series, vix_series, threshold=0.35):
+        """Combine live NYT headline GPR proxies with live yfinance VIX/WTI
+        so all 8 features use the freshest available data."""
+        proxy = headlines_summary['headline_gpr_proxy']
+        oil_pct = headlines_summary['oil_related_pct']
+
+        vl, v5 = float(vix_series.iloc[-1]), float(vix_series.iloc[-6])
+        wl, wp, w5 = float(wti_series.iloc[-1]), float(wti_series.iloc[-2]), float(wti_series.iloc[-6])
+
+        feats = dict(self.latest_features)
+        feats['gpr_ai_lag1'] = proxy
+        feats['gpr_oil_lag1'] = proxy * oil_pct / 100.0
+        feats['gpr_aer_lag1'] = proxy * 0.8
+        feats['gpr_change_5d'] = proxy - self.latest_features['gpr_ai_lag1']
+        feats['vix_lag1'] = vl
+        feats['vix_change_5d'] = vl - v5
+        feats['wti_return_lag1'] = (wl / wp) - 1.0
+        feats['wti_return_lag5'] = (wl / w5) - 1.0
+
+        prob, label = self._predict(feats, threshold)
+        return {
+            'date': str(self.latest_date.date()),
+            'probability': prob,
+            'prediction': label,
+            'features_used': feats,
+            'threshold': threshold,
+            'headline_gpr_proxy': proxy,
+            'wti_last': wl,
+            'vix_last': vl,
+            'source': 'combined',
+        }
+
     def predict_whatif(self, feature_overrides, threshold=0.35):
         """Override any subset of features with user-supplied values; fill
         the rest from the latest historical row."""
