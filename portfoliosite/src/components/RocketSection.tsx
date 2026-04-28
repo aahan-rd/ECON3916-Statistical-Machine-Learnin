@@ -94,12 +94,14 @@ export default function RocketSection() {
           </h3>
 
           <p className="text-offwhite/65 leading-relaxed mb-8 text-[1.05rem]">
-            From memorizing every system in an F-14 cockpit as a kid to building
-            a 6-foot rocket from scratch with AeroNU — aerospace has been my
-            longest-running obsession. Our rocket hit 3,000&nbsp;ft and
-            230&nbsp;m/s. I&apos;m not here because aerospace seems like a good
-            career move — I&apos;m here because a two-year-old watched Maverick
-            take off and never got over it.
+          While other kids watched cartoons, I was learning the inner
+            workings of a swing-wing fighter jet. That obsession never
+            left&nbsp;&mdash; it just evolved. Through AeroNU, I got to
+            own the entire process: designing the rocket in OpenRocket,
+            modeling fins in CAD, laser-cutting custom parts, assembling
+            the hardware by hand, and watching it rip to
+            3,000&nbsp;ft and 230&nbsp;m/s. Some people grow out of
+            their childhood dreams. I&apos;m still chasing mine.
           </p>
 
           {/* Stats pills */}

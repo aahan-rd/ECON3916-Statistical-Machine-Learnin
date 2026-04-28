@@ -20,7 +20,7 @@ type Job = {
 const jobs: Job[] = [
   {
     title: "Bevi",
-    role: "Incoming Product Manager — Software & Beverage Team",
+    role: "Incoming PM Intern — Software & Beverage Team",
     date: "Jul 2026 – Dec 2026",
     location: "Boston, MA",
     bullets: [],

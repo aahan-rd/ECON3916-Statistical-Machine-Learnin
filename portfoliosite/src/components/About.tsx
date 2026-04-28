@@ -44,7 +44,7 @@ export default function About() {
                 econometric analyses on real-world policy questions.
               </p>
               <p>
-                This fall, I&apos;m joining Bevi as a Product Manager on the
+                This fall, I&apos;m joining Bevi as a Product Manager Intern on the
                 Software &amp; Beverage team. I first found this passion at
                 CENTA, where I owned features end-to-end for platforms serving
                 2 million teachers across 100 countries — from user research
