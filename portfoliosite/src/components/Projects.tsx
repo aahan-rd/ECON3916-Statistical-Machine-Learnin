@@ -25,14 +25,14 @@ const projects: Project[] = [
       "Deployed a Streamlit dashboard with three prediction modes, live yfinance quotes, and a user-adjustable precision/recall threshold.",
     ],
     tags: ["Python", "scikit-learn", "Streamlit", "Gradient Boosting", "NLP", "Sentiment Analysis", "Time Series", "yfinance"],
-    github: "https://github.com/aahan-rd/ECON3916-Statistical-Machine-Learnin",
+    github: "https://github.com/aahan-rd/ECON3916-Statistical-Machine-Learnin/tree/main/Economics-Final-Project",
     links: [
       { label: "Live Dashboard", href: "https://livenews-oil-shock-radar.streamlit.app/", accent: true },
     ],
   },
   {
     title: "Agricultural Yield Predictor",
-    role: "Horizon Academic Research Program · May–Jul 2024",
+    role: "Horizon Academic Research Program · May–Jul 2023",
     bullets: [
       "Built an end-to-end ML tool helping farmers in developing markets maximize crop yields and profits.",
       "Defined the product from scratch — identified the problem, scoped the solution, built data pipelines, and delivered a Flask web app.",
@@ -51,7 +51,7 @@ const projects: Project[] = [
       "Features four integrated modules: a recipe library browser, a recipe editor, a search system with advanced filtering and debounced queries, and an import interface powered by Gemini's OCR API for adding recipes via photos.",
     ],
     tags: ["Java", "JavaFX", "MVVM", "Gemini API", "OCR", "JUnit", "Full-Stack"],
-    github: "https://github.com/aahan-rd",
+    github: "https://github.com/aahan-rd/Cook-Book-Fullstack-Java-App",
   },
   {
     title: "SnugLine — CVC Patient Sleeve",
