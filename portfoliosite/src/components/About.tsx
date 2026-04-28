@@ -36,30 +36,28 @@ export default function About() {
                 at Northeastern University, originally from Bangalore, India.
               </p>
               <p>
-                I build products by obsessing over users first. At CENTA, I
-                owned features end-to-end for platforms serving 2 million
-                teachers across 100 countries — from user research and PRDs
-                through wireframes in Figma to shipping live pages. Before that,
-                I built data pipelines at Graphene AI to surface customer
-                insights for Fortune 500 clients like Costco.
+                I build products by obsessing over users first. My CS and
+                economics background means I approach products through data,
+                incentives, and user behavior — not just feature lists.
+                I&apos;ve built ML models that predict crop yields for farmers,
+                trained computer vision systems for healthcare, and run
+                econometric analyses on real-world policy questions.
               </p>
               <p>
-                What sets me apart: I think in systems. My CS and economics
-                background means I approach products through data, incentives,
-                and user behavior — not just feature lists. I&apos;ve built ML
-                models that predict crop yields for farmers, trained computer
-                vision systems for healthcare, and run econometric analyses on
-                real-world policy questions.
+                This fall, I&apos;m joining Bevi as a Product Manager on the
+                Software &amp; Beverage team. I first found this passion at
+                CENTA, where I owned features end-to-end for platforms serving
+                2 million teachers across 100 countries — from user research
+                and PRDs through wireframes in Figma to shipping live pages.
+                Before that, I built data pipelines at Graphene AI to surface
+                customer insights for Fortune 500 clients like Costco.
               </p>
               <p>
-                Outside of work, I&apos;m a wildlife photographer with 300+ bird
-                species documented, an award-winning filmmaker, and a WWF India
-                conservation advocate. I believe the best PMs are deeply curious
-                people — and I bring that curiosity to everything I touch.
-              </p>
-              <p>
-                Currently seeking Product Management co-op opportunities for
-                May–Dec 2026.
+                Outside of work, I&apos;m a wildlife photographer with 300+
+                bird species documented, an award-winning filmmaker, and a WWF
+                India conservation advocate. I believe the best PMs are deeply
+                curious people — and I bring that curiosity to everything I
+                touch.
               </p>
             </motion.div>
 

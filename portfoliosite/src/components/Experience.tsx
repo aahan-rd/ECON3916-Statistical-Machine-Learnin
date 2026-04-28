@@ -14,9 +14,19 @@ type Job = {
   bullets: string[];
   tags: string[];
   liveWork?: LiveLink[];
+  incoming?: boolean;
 };
 
 const jobs: Job[] = [
+  {
+    title: "Bevi",
+    role: "Incoming Product Manager — Software & Beverage Team",
+    date: "Jul 2026 – Dec 2026",
+    location: "Boston, MA",
+    bullets: [],
+    tags: [],
+    incoming: true,
+  },
   {
     title: "Center for Teacher Accreditation (CENTA)",
     role: "Product Team Intern",
@@ -113,7 +123,7 @@ export default function Experience() {
                     />
                   ))}
                   <span className="text-[10px] tracking-[0.2em] uppercase text-offwhite/15">
-                    · 2 years prior ·
+                    {i === 1 ? "· 1 year ago ·" : "· 2 years prior ·"}
                   </span>
                 </motion.div>
               )}
@@ -162,9 +172,16 @@ export default function Experience() {
                 >
                   {/* Header */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1.5">
-                    <h3 className="font-display text-xl font-semibold text-offwhite leading-snug">
-                      {job.title}
-                    </h3>
+                    <div className="flex items-center gap-3">
+                      <h3 className="font-display text-xl font-semibold text-offwhite leading-snug">
+                        {job.title}
+                      </h3>
+                      {job.incoming && (
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full bg-copper/15 text-copper border border-copper/30">
+                          Incoming
+                        </span>
+                      )}
+                    </div>
                     <span className="text-xs text-offwhite/60 shrink-0 sm:mt-1">
                       {job.location}
                     </span>
@@ -173,26 +190,30 @@ export default function Experience() {
                     {job.role} · {job.date}
                   </p>
 
-                  {/* Bullet points */}
-                  <ul className="space-y-2.5 mb-5">
-                    {job.bullets.map((b, bi) => (
-                      <li key={bi} className="text-sm text-offwhite/62 leading-relaxed">
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
+                  {job.bullets.length > 0 && (
+                    <>
+                      {/* Bullet points */}
+                      <ul className="space-y-2.5 mb-5">
+                        {job.bullets.map((b, bi) => (
+                          <li key={bi} className="text-sm text-offwhite/62 leading-relaxed">
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {job.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2.5 py-1 rounded-full border border-offwhite/20 text-offwhite/65 tracking-wide"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {job.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs px-2.5 py-1 rounded-full border border-offwhite/20 text-offwhite/65 tracking-wide"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </>
+                  )}
 
                   {/* Live work links */}
                   {job.liveWork && (

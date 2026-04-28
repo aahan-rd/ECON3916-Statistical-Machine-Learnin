@@ -46,9 +46,9 @@ export default function Contact() {
             Let&apos;s Connect
           </h2>
           <p className="text-offwhite/50 text-lg mb-16 max-w-xl leading-relaxed">
-            Open to PM co-op opportunities for May–Dec 2026, research
-            collaborations, and conversations about building products,
-            conservation, and anything in between.
+            If you&apos;re passionate about product, innovation, computer science,
+            nature, aerospace, or just want to argue about whether tabs or spaces
+            are better — let&apos;s talk.
           </p>
         </motion.div>
 

@@ -4,26 +4,31 @@ import { motion } from "framer-motion";
 
 const viewport = { once: true, margin: "-60px" } as const;
 
+type ProjectLink = { label: string; href: string; accent?: boolean };
+
 type Project = {
   title: string;
   role: string;
   bullets: string[];
   tags: string[];
   github?: string;
+  links?: ProjectLink[];
 };
 
 const projects: Project[] = [
   {
-    title: "Mroz (1987) Econometric Modeling",
-    role: "Statistical ML Course Project · Spring 2026",
+    title: "Oil Shock Radar — Live Geopolitical Volatility Predictor",
+    role: "Developer · ECON 3916 Final Project · Spring 2026",
     bullets: [
-      "Full EDA on real-world data — log-wage transformations, Tukey fence outlier detection, and bivariate plots across all treatment variables.",
-      "Built 4 OLS models with HC1 robust standard errors justified by Breusch-Pagan test.",
-      "Documented omitted variable bias from two unobserved confounders.",
+      "Built a live ML system predicting large WTI crude oil price moves (|daily return| > 2%) from geopolitical risk, market volatility, and real-time NYT headline sentiment.",
+      "Engineered 8 time-lagged features from the Caldara & Iacoviello AI-GPR Index, FRED oil prices, and CBOE VIX. Custom phrase-aware bigram NLP scorer for live NYT RSS headlines.",
+      "Deployed a Streamlit dashboard with three prediction modes, live yfinance quotes, and a user-adjustable precision/recall threshold.",
     ],
-    tags: ["Python", "OLS Regression", "Econometrics", "EDA", "Statsmodels"],
-    github:
-      "https://github.com/aahan-rd/ECON3916-Statistical-Machine-Learnin/tree/main/Economics%20Final%20Project",
+    tags: ["Python", "scikit-learn", "Streamlit", "Gradient Boosting", "NLP", "Sentiment Analysis", "Time Series", "yfinance"],
+    github: "https://github.com/aahan-rd/ECON3916-Statistical-Machine-Learnin",
+    links: [
+      { label: "Live Dashboard", href: "https://livenews-oil-shock-radar.streamlit.app/", accent: true },
+    ],
   },
   {
     title: "Agricultural Yield Predictor",
@@ -39,13 +44,14 @@ const projects: Project[] = [
       "https://github.com/aahan-rd/Agricultural-Research-ML--Horizon-Academic-Research-Program",
   },
   {
-    title: "Orthodontist AI — Google Code2Learn",
-    role: "Developer · Apr–Jul 2020",
+    title: "Cook Your Books — Full-Stack Desktop App",
+    role: "Developer & Lead Planner · CS Course Project · Spring 2026",
     bullets: [
-      "Developed a computer vision model to diagnose orthodontic treatment severity and recommend treatment plans — validated against clinical data from India's leading prosthodontist, Dr. Sadashiv Shetty.",
-      "Trained and deployed on Google Cloud with a Python client for inference.",
+      "Leading a team to build a full-stack desktop application in Java and JavaFX following the MVVM architecture pattern.",
+      "Features four integrated modules: a recipe library browser, a recipe editor, a search system with advanced filtering and debounced queries, and an import interface powered by Gemini's OCR API for adding recipes via photos.",
     ],
-    tags: ["Google Cloud", "Computer Vision", "Python", "ML"],
+    tags: ["Java", "JavaFX", "MVVM", "Gemini API", "OCR", "JUnit", "Full-Stack"],
+    github: "https://github.com/aahan-rd",
   },
   {
     title: "SnugLine — CVC Patient Sleeve",
@@ -57,16 +63,40 @@ const projects: Project[] = [
     tags: ["Product Design", "Design Thinking", "Medical Device", "User-Centered Design", "Entrepreneurship"],
   },
   {
-    title: "Cook Your Books — Full-Stack Desktop App",
-    role: "Developer & Lead Planner · CS Course Project · Spring 2026",
+    title: "Orthodontist AI — Google Code2Learn",
+    role: "Developer · Apr–Jul 2020",
     bullets: [
-      "Leading a team to build a full-stack desktop application in Java and JavaFX following the MVVM architecture pattern.",
-      "Features four integrated modules: a recipe library browser, a recipe editor, a search system with advanced filtering and debounced queries, and an import interface powered by Gemini's OCR API for adding recipes via photos.",
+      "Developed a computer vision model to diagnose orthodontic treatment severity and recommend treatment plans — validated against clinical data from India's leading prosthodontist, Dr. Sadashiv Shetty.",
+      "Trained and deployed on Google Cloud with a Python client for inference.",
     ],
-    tags: ["Java", "JavaFX", "MVVM", "Gemini API", "OCR", "JUnit", "Full-Stack"],
-    github: "https://github.com/aahan-rd",
+    tags: ["Google Cloud", "Computer Vision", "Python", "ML"],
+  },
+  {
+    title: "Mroz (1987) Econometric Modeling",
+    role: "Statistical ML Course Project · Spring 2026",
+    bullets: [
+      "Full EDA on real-world data — log-wage transformations, Tukey fence outlier detection, and bivariate plots across all treatment variables.",
+      "Built 4 OLS models with HC1 robust standard errors justified by Breusch-Pagan test.",
+      "Documented omitted variable bias from two unobserved confounders.",
+    ],
+    tags: ["Python", "OLS Regression", "Econometrics", "EDA", "Statsmodels"],
+    github:
+      "https://github.com/aahan-rd/ECON3916-Statistical-Machine-Learnin/tree/main/Economics%20Final%20Project",
   },
 ];
+
+function ExternalLinkIcon() {
+  return (
+    <svg
+      width="12" height="12" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    >
+      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+      <polyline points="15,3 21,3 21,9" />
+      <line x1="10" y1="14" x2="21" y2="3" />
+    </svg>
+  );
+}
 
 function GitHubIcon() {
   return (
@@ -90,7 +120,7 @@ export default function Projects() {
           Projects
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-[20px]">
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
@@ -114,17 +144,19 @@ export default function Projects() {
                   <h3 className="font-display text-xl font-semibold text-offwhite leading-snug">
                     {project.title}
                   </h3>
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`GitHub — ${project.title}`}
-                      className="shrink-0 text-offwhite/30 hover:text-copper transition-colors duration-200 mt-0.5"
-                    >
-                      <GitHubIcon />
-                    </a>
-                  )}
+                  <div className="flex items-center gap-3 shrink-0 mt-0.5">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`GitHub — ${project.title}`}
+                        className="text-offwhite/30 hover:text-copper transition-colors duration-200"
+                      >
+                        <GitHubIcon />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 <p className="text-sm text-copper mb-4">{project.role}</p>
@@ -149,6 +181,27 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {project.links && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs tracking-wide transition-all duration-200 ${
+                          link.accent
+                            ? "border border-copper/50 text-copper hover:border-copper hover:bg-copper/10"
+                            : "border border-offwhite/15 text-offwhite/50 hover:border-copper/40 hover:text-copper"
+                        }`}
+                      >
+                        {link.label}
+                        <ExternalLinkIcon />
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
